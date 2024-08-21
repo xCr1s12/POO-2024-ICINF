@@ -1,13 +1,16 @@
-b = input("Escribe tu nombre")
-c = input("Escribe tu edad")
 class Persona():
-    nombre = b
-    edad = c 
+    def __init__(self, nombre, edad):
+        self.nombre = nombre
+        self.edad = edad
 
     def comer(self):
-        print(f"{self.nombre} estas comiendo ")
+            print(f"{self.nombre} estas comiendo")
+    
 
-Persona1 = Persona()
+persona1 = Persona(input("Escribe tu nombre"), 19)
+persona2 = Persona("matheo", 20)
 
-print(f"Hola {Persona1.nombre} tienes {Persona.edad}")
-Persona1.comer()
+print(f"Hola {persona1.nombre} tienes {persona1.edad}")
+print(f"Hola {persona2.nombre} tienes {persona2.edad}")
+persona1.comer()
+persona2.comer()
