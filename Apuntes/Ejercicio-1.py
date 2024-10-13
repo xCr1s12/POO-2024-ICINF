@@ -1,28 +1,36 @@
 
 
 class Cliente():
-    def __init__(self, nombre, n_cuenta, dinero):
-        self.nombre = nombre
-        self.n_cuenta = n_cuenta
-        self.dinero = dinero
+    def __init__(self, __nombre, __n_cuenta, __dinero):
+        self.__nombre = __nombre
+        self.__n_cuenta = __n_cuenta
+        self.__dinero = __dinero
+        self.__historial = [""]
+    
+    def Consulta_saldo(self):
+        return print(f"Dinero actual: {self.__dinero}")
 
     
     def deposito(self,new_deposito):
-        self.dinero += new_deposito
-        print(f"Dinero actual en la cuenta: {self.dinero}")
+        self.__dinero += new_deposito
+        print(f"__Dinero actual en la cuenta: {self.__dinero}")
     
     def retiro(self, retiro):
-        if retiro > self.dinero:
+        if retiro > self.__dinero:
             print("El retiro es mayor al dinero en la cuenta")
-            print(f"el dinero actual en la cuenta es: {self.dinero}")
         else:
-            self.dinero -= retiro
-            print(f"Dinero actual en la cuenta: {self.dinero}")
+            self.__dinero -= retiro
+            print(f"se retiro el dinero exitosamente: {self.__dinero}")
+
+    def __info_user(self):
+        return print(f"nombre = {self.__nombre}, Numero de cuenta = {self.__n_cuenta},Saldo actual = {self.__dinero}, \nHistorial de cuenta = {}")
 
     def __equals__(self, other):
-         return self.n_cuenta == other.n_cuenta
+         return self.__n_cuenta == other.__n_cuenta
     def __str__(self):
-         return f"Nombre: {self.nombre} \nNumero de cuenta: {self.n_cuenta} \nDinero: {self.dinero}"
+         return f"Nombre: {self.__nombre}"
+
+
 class Banco():
     def __init__(self):
         self.clientes = {
@@ -30,17 +38,17 @@ class Banco():
         }
 
     def new_client(self,cliente):
-        if cliente.n_cuenta in self.clientes:
+        if cliente.__n_cuenta in self.clientes:
             print("Numero de cuenta en uso")
         else:
-            self.clientes[cliente.n_cuenta] = cliente
+            self.clientes[cliente.__n_cuenta] = cliente
     
     def Lista_clientes(self):
         for x in self.clientes.values():
             print(x)
 
-cliente1 = Cliente("Juan", n_cuenta=2180021, dinero=5000)
-cliente2 = Cliente("esteban", n_cuenta=2180022, dinero=5000)
+cliente1 = Cliente("Juan", 2180021, 5000)
+cliente2 = Cliente("esteban", 2180022, 5000)
 banco = Banco()
 
 cliente1.deposito(1000)
