@@ -37,7 +37,7 @@ class Agenda():
     def agregar_contacto(self,new_contacto):
         self.contactos.append(new_contacto) 
 
-    def mostrar_contactos(self) -> none:
+    def mostrar_contactos(self) -> None:
         for i in self.contactos:
             print(i.nombre())
 
